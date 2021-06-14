@@ -3,11 +3,9 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package nhom1;
+package week2;
 
-import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
-import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -15,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class userInfo extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 4046418329463814319L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"userInfo\",\"namespace\":\"nhom1\",\"fields\":[{\"name\":\"username\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"age\",\"type\":\"int\",\"default\":-1},{\"name\":\"phone\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"address\",\"type\":{\"type\":\"record\",\"name\":\"mailing_address\",\"fields\":[{\"name\":\"street\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"city\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"country\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"}]},\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"userInfo\",\"namespace\":\"huyla78.week2.nhom1\",\"fields\":[{\"name\":\"username\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"age\",\"type\":\"int\",\"default\":-1},{\"name\":\"phone\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"address\",\"type\":{\"type\":\"record\",\"name\":\"mailing_address\",\"fields\":[{\"name\":\"street\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"city\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"country\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"}]},\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -74,7 +72,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
   @Deprecated public java.lang.String username;
   @Deprecated public int age;
   @Deprecated public java.lang.String phone;
-  @Deprecated public nhom1.mailing_address address;
+  @Deprecated public mailing_address address;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -90,7 +88,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
    * @param phone The new value for phone
    * @param address The new value for address
    */
-  public userInfo(java.lang.String username, java.lang.Integer age, java.lang.String phone, nhom1.mailing_address address) {
+  public userInfo(java.lang.String username, java.lang.Integer age, java.lang.String phone, mailing_address address) {
     this.username = username;
     this.age = age;
     this.phone = phone;
@@ -117,7 +115,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
     case 0: username = value$ != null ? value$.toString() : null; break;
     case 1: age = (java.lang.Integer)value$; break;
     case 2: phone = value$ != null ? value$.toString() : null; break;
-    case 3: address = (nhom1.mailing_address)value$; break;
+    case 3: address = (mailing_address)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -177,7 +175,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'address' field.
    * @return The value of the 'address' field.
    */
-  public nhom1.mailing_address getAddress() {
+  public mailing_address getAddress() {
     return address;
   }
 
@@ -186,7 +184,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'address' field.
    * @param value the value to set.
    */
-  public void setAddress(nhom1.mailing_address value) {
+  public void setAddress(mailing_address value) {
     this.address = value;
   }
 
@@ -194,8 +192,8 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
    * Creates a new userInfo RecordBuilder.
    * @return A new userInfo RecordBuilder
    */
-  public static nhom1.userInfo.Builder newBuilder() {
-    return new nhom1.userInfo.Builder();
+  public static userInfo.Builder newBuilder() {
+    return new userInfo.Builder();
   }
 
   /**
@@ -203,11 +201,11 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
    * @param other The existing builder to copy.
    * @return A new userInfo RecordBuilder
    */
-  public static nhom1.userInfo.Builder newBuilder(nhom1.userInfo.Builder other) {
+  public static userInfo.Builder newBuilder(userInfo.Builder other) {
     if (other == null) {
-      return new nhom1.userInfo.Builder();
+      return new userInfo.Builder();
     } else {
-      return new nhom1.userInfo.Builder(other);
+      return new userInfo.Builder(other);
     }
   }
 
@@ -216,11 +214,11 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
    * @param other The existing instance to copy.
    * @return A new userInfo RecordBuilder
    */
-  public static nhom1.userInfo.Builder newBuilder(nhom1.userInfo other) {
+  public static userInfo.Builder newBuilder(userInfo other) {
     if (other == null) {
-      return new nhom1.userInfo.Builder();
+      return new userInfo.Builder();
     } else {
-      return new nhom1.userInfo.Builder(other);
+      return new userInfo.Builder(other);
     }
   }
 
@@ -234,8 +232,8 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
     private java.lang.String username;
     private int age;
     private java.lang.String phone;
-    private nhom1.mailing_address address;
-    private nhom1.mailing_address.Builder addressBuilder;
+    private mailing_address address;
+    private mailing_address.Builder addressBuilder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -246,7 +244,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(nhom1.userInfo.Builder other) {
+    private Builder(userInfo.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.username)) {
         this.username = data().deepCopy(fields()[0].schema(), other.username);
@@ -265,7 +263,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
       if (other.hasAddressBuilder()) {
-        this.addressBuilder = nhom1.mailing_address.newBuilder(other.getAddressBuilder());
+        this.addressBuilder = mailing_address.newBuilder(other.getAddressBuilder());
       }
     }
 
@@ -273,7 +271,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
      * Creates a Builder by copying an existing userInfo instance
      * @param other The existing instance to copy.
      */
-    private Builder(nhom1.userInfo other) {
+    private Builder(userInfo other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.username)) {
         this.username = data().deepCopy(fields()[0].schema(), other.username);
@@ -308,7 +306,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'username'.
       * @return This builder.
       */
-    public nhom1.userInfo.Builder setUsername(java.lang.String value) {
+    public userInfo.Builder setUsername(java.lang.String value) {
       validate(fields()[0], value);
       this.username = value;
       fieldSetFlags()[0] = true;
@@ -328,7 +326,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'username' field.
       * @return This builder.
       */
-    public nhom1.userInfo.Builder clearUsername() {
+    public userInfo.Builder clearUsername() {
       username = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -348,7 +346,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'age'.
       * @return This builder.
       */
-    public nhom1.userInfo.Builder setAge(int value) {
+    public userInfo.Builder setAge(int value) {
       validate(fields()[1], value);
       this.age = value;
       fieldSetFlags()[1] = true;
@@ -368,7 +366,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'age' field.
       * @return This builder.
       */
-    public nhom1.userInfo.Builder clearAge() {
+    public userInfo.Builder clearAge() {
       fieldSetFlags()[1] = false;
       return this;
     }
@@ -387,7 +385,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'phone'.
       * @return This builder.
       */
-    public nhom1.userInfo.Builder setPhone(java.lang.String value) {
+    public userInfo.Builder setPhone(java.lang.String value) {
       validate(fields()[2], value);
       this.phone = value;
       fieldSetFlags()[2] = true;
@@ -407,7 +405,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'phone' field.
       * @return This builder.
       */
-    public nhom1.userInfo.Builder clearPhone() {
+    public userInfo.Builder clearPhone() {
       phone = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -417,7 +415,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'address' field.
       * @return The value.
       */
-    public nhom1.mailing_address getAddress() {
+    public mailing_address getAddress() {
       return address;
     }
 
@@ -427,7 +425,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'address'.
       * @return This builder.
       */
-    public nhom1.userInfo.Builder setAddress(nhom1.mailing_address value) {
+    public userInfo.Builder setAddress(mailing_address value) {
       validate(fields()[3], value);
       this.addressBuilder = null;
       this.address = value;
@@ -447,12 +445,12 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
      * Gets the Builder instance for the 'address' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public nhom1.mailing_address.Builder getAddressBuilder() {
+    public mailing_address.Builder getAddressBuilder() {
       if (addressBuilder == null) {
         if (hasAddress()) {
-          setAddressBuilder(nhom1.mailing_address.newBuilder(address));
+          setAddressBuilder(mailing_address.newBuilder(address));
         } else {
-          setAddressBuilder(nhom1.mailing_address.newBuilder());
+          setAddressBuilder(mailing_address.newBuilder());
         }
       }
       return addressBuilder;
@@ -463,7 +461,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public nhom1.userInfo.Builder setAddressBuilder(nhom1.mailing_address.Builder value) {
+    public userInfo.Builder setAddressBuilder(mailing_address.Builder value) {
       clearAddress();
       addressBuilder = value;
       return this;
@@ -481,7 +479,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'address' field.
       * @return This builder.
       */
-    public nhom1.userInfo.Builder clearAddress() {
+    public userInfo.Builder clearAddress() {
       address = null;
       addressBuilder = null;
       fieldSetFlags()[3] = false;
@@ -504,7 +502,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
             throw e;
           }
         } else {
-          record.address = fieldSetFlags()[3] ? this.address : (nhom1.mailing_address) defaultValue(fields()[3]);
+          record.address = fieldSetFlags()[3] ? this.address : (mailing_address) defaultValue(fields()[3]);
         }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -560,7 +558,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
       this.phone = in.readString();
 
       if (this.address == null) {
-        this.address = new nhom1.mailing_address();
+        this.address = new mailing_address();
       }
       this.address.customDecode(in);
 
@@ -581,7 +579,7 @@ public class userInfo extends org.apache.avro.specific.SpecificRecordBase implem
 
         case 3:
           if (this.address == null) {
-            this.address = new nhom1.mailing_address();
+            this.address = new mailing_address();
           }
           this.address.customDecode(in);
           break;

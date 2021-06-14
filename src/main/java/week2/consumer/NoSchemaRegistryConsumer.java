@@ -1,5 +1,5 @@
-package consumer;
-import producer.AvroSupport;
+package week2.consumer;
+import week2.producer.AvroSupport;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -30,7 +30,7 @@ public class NoSchemaRegistryConsumer {
         KafkaConsumer<String, byte[]> consumer = createConsumer();
 
         // Assign to specific topic and partition, subscribe could be used here to subscribe to all topic.
-        consumer.assign(Arrays.asList(new TopicPartition("avro-topic2", 0)));
+        consumer.assign(Arrays.asList(new TopicPartition("avro-topic", 0)));
 
         processRecords(consumer);
     }
@@ -58,11 +58,7 @@ public class NoSchemaRegistryConsumer {
         props.put("bootstrap.servers", "10.140.0.3:9092");
         String consumeGroup = "cg1";
         props.put("group.id", consumeGroup);
-        props.put("enable.auto.commit", "true");
         props.put("auto.offset.reset", "earliest");
-        props.put("auto.commit.interval.ms", "100");
-        props.put("heartbeat.interval.ms", "3000");
-        props.put("session.timeout.ms", "30000");
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
 

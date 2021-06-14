@@ -1,7 +1,7 @@
 {
 "type" : "record",
 "name" : "userInfo",
-"namespace" : "nhom1",
+"namespace" : "huyla78.week2.nhom1",
 "fields" : [{"name" : "username",
 "type" : "string",
 "default" : "NONE"},

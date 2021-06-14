@@ -1,4 +1,4 @@
-package consumer;
+package week2.consumer;
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
@@ -24,7 +24,7 @@ public class GenericConsumer {
     public void readMessages() {
         Properties properties = new Properties();
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.140.0.3:9092");
-        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "generic-record-consumer-group1");
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "generic-record-huyla78.week2.nhom1.consumer-group1");
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
@@ -35,7 +35,7 @@ public class GenericConsumer {
 
         KafkaConsumer<String, GenericRecord> consumer = new KafkaConsumer<>(properties);
 
-        consumer.subscribe(Collections.singleton("avro-topic"));
+        consumer.subscribe(Collections.singleton("avro-topic4"));
 
         //poll the record from the topic
         while (true) {

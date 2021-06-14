@@ -1,4 +1,4 @@
-package producer;
+package week2.producer;
 
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericDatumReader;
@@ -23,7 +23,7 @@ public class AvroSupport {
 
     public static Schema getSchema() throws IOException {
 
-        return new Schema.Parser().parse(new File("/home/quanghuy/KafkaProject/test/src/main/avro/userInfo.avsc"));
+        return new Schema.Parser().parse(new File("/home/quanghuy/KafkaProject/huylq78/src/main/avro/userInfo.avsc"));
     }
 
     public static byte[] dataToByteArray(Schema schema, GenericRecord datum) throws IOException {

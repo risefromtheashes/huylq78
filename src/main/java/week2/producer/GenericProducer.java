@@ -1,4 +1,4 @@
-package producer;
+package week2.producer;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.serializers.KafkaAvroSerializerConfig;
 import org.apache.avro.Schema;
@@ -31,12 +31,12 @@ public class GenericProducer {
         Producer<String, GenericRecord> producer = new KafkaProducer<>(properties);
 
         Schema.Parser parser = new Schema.Parser();
-        Schema schema = parser.parse(new File("/home/quanghuy/KafkaProject/huylq78.avro/src/main/avro/userInfo.avsc"));
+        Schema schema = parser.parse(new File("/home/quanghuy/KafkaProject/huylq78/src/main/avro/userInfo.avsc"));
 
         //prepare the avro record
         GenericRecord info = new GenericData.Record(schema);
         info.put("username", "Hello world");
-        info.put("age", 20);
+        info.put("age", 22);
         info.put("phone","0");
         GenericRecord address = new GenericData.Record(schema.getField("address").schema());
         address.put("street", "a");
@@ -46,10 +46,10 @@ public class GenericProducer {
         System.out.println(info);
 
         //prepare the kafka record
-        ProducerRecord<String, GenericRecord> record = new ProducerRecord<>("avro-topic", null, info);
+        ProducerRecord<String, GenericRecord> record = new ProducerRecord<>("avro-topic4", null, info);
 
         producer.send(record);
-        //ensures record is sent before closing the producer
+        //ensures record is sent before closing the huyla78.week2.nhom1.producer
         producer.flush();
 
         producer.close();

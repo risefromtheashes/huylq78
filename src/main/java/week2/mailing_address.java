@@ -3,11 +3,9 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package nhom1;
+package week2;
 
-import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
-import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -15,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class mailing_address extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -3047198413891138677L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"mailing_address\",\"namespace\":\"nhom1\",\"fields\":[{\"name\":\"street\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"city\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"country\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"mailing_address\",\"namespace\":\"huyla78.week2.nhom1\",\"fields\":[{\"name\":\"street\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"city\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"},{\"name\":\"country\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"default\":\"NONE\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -172,8 +170,8 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
    * Creates a new mailing_address RecordBuilder.
    * @return A new mailing_address RecordBuilder
    */
-  public static nhom1.mailing_address.Builder newBuilder() {
-    return new nhom1.mailing_address.Builder();
+  public static mailing_address.Builder newBuilder() {
+    return new mailing_address.Builder();
   }
 
   /**
@@ -181,11 +179,11 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
    * @param other The existing builder to copy.
    * @return A new mailing_address RecordBuilder
    */
-  public static nhom1.mailing_address.Builder newBuilder(nhom1.mailing_address.Builder other) {
+  public static mailing_address.Builder newBuilder(mailing_address.Builder other) {
     if (other == null) {
-      return new nhom1.mailing_address.Builder();
+      return new mailing_address.Builder();
     } else {
-      return new nhom1.mailing_address.Builder(other);
+      return new mailing_address.Builder(other);
     }
   }
 
@@ -194,11 +192,11 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
    * @param other The existing instance to copy.
    * @return A new mailing_address RecordBuilder
    */
-  public static nhom1.mailing_address.Builder newBuilder(nhom1.mailing_address other) {
+  public static mailing_address.Builder newBuilder(mailing_address other) {
     if (other == null) {
-      return new nhom1.mailing_address.Builder();
+      return new mailing_address.Builder();
     } else {
-      return new nhom1.mailing_address.Builder(other);
+      return new mailing_address.Builder(other);
     }
   }
 
@@ -222,7 +220,7 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(nhom1.mailing_address.Builder other) {
+    private Builder(mailing_address.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.street)) {
         this.street = data().deepCopy(fields()[0].schema(), other.street);
@@ -242,7 +240,7 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
      * Creates a Builder by copying an existing mailing_address instance
      * @param other The existing instance to copy.
      */
-    private Builder(nhom1.mailing_address other) {
+    private Builder(mailing_address other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.street)) {
         this.street = data().deepCopy(fields()[0].schema(), other.street);
@@ -272,7 +270,7 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'street'.
       * @return This builder.
       */
-    public nhom1.mailing_address.Builder setStreet(java.lang.String value) {
+    public mailing_address.Builder setStreet(java.lang.String value) {
       validate(fields()[0], value);
       this.street = value;
       fieldSetFlags()[0] = true;
@@ -292,7 +290,7 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
       * Clears the value of the 'street' field.
       * @return This builder.
       */
-    public nhom1.mailing_address.Builder clearStreet() {
+    public mailing_address.Builder clearStreet() {
       street = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -312,7 +310,7 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'city'.
       * @return This builder.
       */
-    public nhom1.mailing_address.Builder setCity(java.lang.String value) {
+    public mailing_address.Builder setCity(java.lang.String value) {
       validate(fields()[1], value);
       this.city = value;
       fieldSetFlags()[1] = true;
@@ -332,7 +330,7 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
       * Clears the value of the 'city' field.
       * @return This builder.
       */
-    public nhom1.mailing_address.Builder clearCity() {
+    public mailing_address.Builder clearCity() {
       city = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -352,7 +350,7 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'country'.
       * @return This builder.
       */
-    public nhom1.mailing_address.Builder setCountry(java.lang.String value) {
+    public mailing_address.Builder setCountry(java.lang.String value) {
       validate(fields()[2], value);
       this.country = value;
       fieldSetFlags()[2] = true;
@@ -372,7 +370,7 @@ public class mailing_address extends org.apache.avro.specific.SpecificRecordBase
       * Clears the value of the 'country' field.
       * @return This builder.
       */
-    public nhom1.mailing_address.Builder clearCountry() {
+    public mailing_address.Builder clearCountry() {
       country = null;
       fieldSetFlags()[2] = false;
       return this;

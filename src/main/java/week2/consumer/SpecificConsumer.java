@@ -1,10 +1,11 @@
-package consumer;
+package week2.consumer;
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import nhom1.*;
+import week2.*;
+import week2.userInfo;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -22,7 +23,7 @@ public class SpecificConsumer {
         prop.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class);
         prop.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         prop.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-        prop.put(ConsumerConfig.GROUP_ID_CONFIG, "specific-record-consumer-group2");
+        prop.put(ConsumerConfig.GROUP_ID_CONFIG, "generic-record-huyla78.week2.nhom1.consumer-group1");
         prop.put(KafkaAvroDeserializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "10.140.0.3:8081");
         prop.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);
         Consumer<String, userInfo> consumer = new KafkaConsumer<String, userInfo>(prop);
@@ -31,9 +32,8 @@ public class SpecificConsumer {
             ConsumerRecords<String, userInfo> records = consumer.poll(Duration.ofMillis(100));
 
             for (ConsumerRecord<String, userInfo> record : records) {
-                System.out.println("name: " + record.value().getUsername());
-                System.out.println("age: " + record.value().getAge());
-                System.out.println("Address: " + record.value().getAddress().getCountry());
+                System.out.println("username:" + record.value().get("username"));
+                System.out.println("age" + record.value().get("age"));
                 System.out.println(record.value());
             }
             consumer.commitAsync();
