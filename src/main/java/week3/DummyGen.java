@@ -18,7 +18,7 @@ public class DummyGen {
         conn = DbUtil.getConnection();
         Statement stmt = conn.createStatement();
         int count = 0;
-        int pkg_order = 0;
+        int pkg_order;
         String sql = "INSERT INTO customers_packages(pkg_order, shop_code, customer_tel, customer_tel_normalize, fullname, pkg_created" + ","+
                 " pkg_modified, package_status_id, customer_province_id, customer_district_id, customer_ward_id, created, modified, is_cancel, ightk_user_id) VALUES";
         BufferedReader reader = new BufferedReader(new FileReader("/home/quanghuy/KafkaProject/huylq78/src/main/java/week3/customer_packages.csv"));
@@ -26,11 +26,12 @@ public class DummyGen {
         String line;
         while ((line = reader.readLine())!=null) {
             String []word = line.split(",");
-            sql += "(" + Integer.parseInt(word[0]) + "," + "\"" + word[1] + "\"" + "," + "\"" + word[2] + "\"" + "," + "\"" + word[3] + "\"" + "," + "\"" + word[4] + "\"" + ","
+            pkg_order = Integer.parseInt(word[0]);
+            sql += "(" + word[0] + "," + "\"" + word[1] + "\"" + "," + "\"" + word[2] + "\"" + "," + "\"" + word[3] + "\"" + "," + "\"" + word[4] + "\"" + ","
                     + word[5] + "," + word[6] + ","
-                    + Integer.parseInt(word[7]) + "," + Integer.parseInt(word[8]) + "," + Integer.parseInt(word[9]) + "," + Integer.parseInt(word[10]) + ","
+                    + word[7] + "," + word[8] + "," + word[9] + "," + word[10] + ","
                     + word[11] + "," + word[12] + ","
-                    + Integer.parseInt(word[13]) + "," + Integer.parseInt(word[14]) + ")";
+                    + word[13] + "," + word[14] + ")";
             if ((pkg_order == n - 1) || (pkg_order == BATCH_SIZE - 1 + count * BATCH_SIZE)) {
                 sql += ";";
                 System.out.println("execute batch: " + count++);
@@ -39,7 +40,7 @@ public class DummyGen {
                 sql = "INSERT INTO customers_packages(pkg_order, shop_code, customer_tel, customer_tel_normalize, fullname, pkg_created" + "," +
                         " pkg_modified, package_status_id, customer_province_id, customer_district_id, customer_ward_id, created, modified, is_cancel, ightk_user_id) VALUES";
             } else sql += ",";
-            pkg_order++;
+
         }
         reader.close();
         conn.close();
