@@ -1,0 +1,2 @@
+-DummyGenFile: generate dữ liệu và insert vào file csv (thời gian chạy: 5s)
+-DummyGen: Đọc dữ liệu từ file csv và insert vào mysql db 5 triệu record theo batch 10000 (thời gian chạy: 35 phút)
