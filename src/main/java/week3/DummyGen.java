@@ -11,9 +11,10 @@ import java.sql.*;
 
 public class DummyGen {
     public static void main(String[] args) throws SQLException, IOException {
+        final long startTime = System.nanoTime();
         DataFactory df = new DataFactory();
         long n = 5000000;
-        int BATCH_SIZE = 10000;
+        int BATCH_SIZE = 1000;
         Connection conn = null;
         conn = DbUtil.getConnection();
         Statement stmt = conn.createStatement();
@@ -40,13 +41,12 @@ public class DummyGen {
                 sql = "INSERT INTO customers_packages(pkg_order, shop_code, customer_tel, customer_tel_normalize, fullname, pkg_created" + "," +
                         " pkg_modified, package_status_id, customer_province_id, customer_district_id, customer_ward_id, created, modified, is_cancel, ightk_user_id) VALUES";
             } else sql += ",";
-
+    
         }
         reader.close();
         conn.close();
-        System.out.println(sql);
-
-
+        final long duration = System.nanoTime() - startTime;
+        System.out.println(duration);
 
     }
 }
