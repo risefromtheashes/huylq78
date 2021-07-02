@@ -10,7 +10,7 @@ import org.apache.spark.sql.SparkSession;
 
 import static org.apache.spark.sql.functions.collect_set;
 
-public class Spark {
+public class SparkBatch {
     public static void main(String[] args) {
 
         SparkSession spark = SparkSession
