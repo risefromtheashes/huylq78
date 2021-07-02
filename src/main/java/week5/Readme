@@ -1,4 +1,10 @@
 result:
 -device_model_num_user: /user/huylq78/device_model_num_user
+$ hadoop jar /opt/temp/parquet-tools-1.9.0.jar cat --json hdfs:/user/huylq78/device_model_num_user/part-00000-c81e445d-78d9-49bb-b361-8438c0f550ef-c000.snappy.parquet
+
+
 -device_model_list_user: /user/huylq78/device_model_list_user
+$ hive --orcfiledump -d hdfs:/user/huylq78/device_model_list_user/part-00000-81015513-8149-4e3d-a0b4-df1b5a87f291-c000.snappy.orc
+
 -button_count_by_user_id: /user/huylq78/button_count_by_user_id_device_model
+$ hadoop jar /opt/temp/parquet-tools-1.9.0.jar cat --json hdfs:/user/huylq78/button_count_by_user_id_device_model/part-00000-c959a49c-ceda-4612-a2bf-87c9a5cb25a7-c000.snappy.parquet
