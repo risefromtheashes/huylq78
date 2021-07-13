@@ -7,6 +7,7 @@ import org.apache.spark.sql.*;
 import org.apache.spark.sql.catalyst.encoders.ExpressionEncoder;
 import org.apache.spark.sql.streaming.StreamingQuery;
 import org.apache.spark.sql.streaming.StreamingQueryException;
+import org.apache.spark.sql.streaming.Trigger;
 import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
@@ -53,7 +54,7 @@ public class SparkStreaming {
 
         SparkSession session = SparkSession.builder()
                 .appName("SparkKafka")
-                .master("local")
+//                .master("local")
                 .getOrCreate();
         session.sparkContext().setLogLevel("ERROR");
         session.streams().awaitAnyTermination(1000);
@@ -84,10 +85,13 @@ public class SparkStreaming {
                 .withColumn("lat", functions.split(object.col("value"), "#").getItem(5))
                 .drop("value");
 //        result.join(tmp, expr)
-        StreamingQuery query = result.writeStream()
-                .outputMode("update")   
-                .format("console")
-                .start();
+        StreamingQuery query = result
+                .repartition(1)
+                .writeStream()
+                .outputMode("append")
+                .format("parquet")
+                .option("checkpointLocation", "hdfs://10.140.0.5:9000/user/huylq78/data_tracking").trigger(Trigger.ProcessingTime("300 seconds")).start("hdfs://10.140.0.5:9000/user/huylq78/data_tracking");
+
         query.awaitTermination();
     }
 }
