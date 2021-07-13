@@ -86,6 +86,48 @@
             <version>3.1.1</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_2.12</artifactId>
+            <version>3.1.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.17.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.confluent/kafka-protobuf-serializer -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-protobuf-serializer</artifactId>
+            <version>6.1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql-kafka-0-10 -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql-kafka-0-10_2.12</artifactId>
+            <version>3.1.1</version>
+
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.confluent/kafka-schema-registry-client -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-schema-registry-client</artifactId>
+            <version>5.5.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
     </dependencies>
 
 
