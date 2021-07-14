@@ -40,7 +40,7 @@ public class ProtoProducer {
         long end = Timestamp.valueOf("2022-01-01 00:00:00").getTime();
         long diff = end - offset + 1;
 
-        for(int i = 0 ; i < 10 ; i++){
+        for(int i = 0 ; i < 100 ; i++){
             Timestamp rand = new Timestamp(offset + (long)(Math.random() * diff));
             Datatracking.DataTracking message = Datatracking.DataTracking.newBuilder()
                     .setVersion(String.valueOf(faker.number().numberBetween(1,100)))
