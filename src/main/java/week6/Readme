@@ -1,0 +1,2 @@
+CREATE EXTERNAL TABLE test(`version` string,`name` string,`timestamp` string,`phone_id` string, `lon` string, `lat` string) PARTITIONED BY (year int, month int, day int, hour int) STORED AS PARQUET LOCATION '/user/huylq78/data_tracking';
+MSCK REPAIR TABLE table_name;
