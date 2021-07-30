@@ -1,0 +1,102 @@
+Bài 1:
+
+GET huylq78/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "range": {
+            "time": {
+              "gte": 1356998400,
+              "lt": 1388534400
+            }
+          }
+        },
+        {
+          "multi_match": {
+            "query": "an toàn, đường bộ, đường sắt",
+            "fields": [
+              "title",
+              "description",
+              "content"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+Bài 2:
+PUT huylq78
+{
+  "mappings": {
+"properties": {
+  "title": {
+    "type": "keyword"
+  }
+}
+  }
+}
+GET huylq78\_search
+{
+  "query": {
+    "bool": {
+      "must" : {
+        "match_phrase_prefix" : {
+          "title" : "Hà Nội"
+        }
+      },
+      "must_not": [
+        {
+            "match": {
+            "description": "Hà Nội"
+            }
+        }
+      ]
+    }
+  },
+    "sort" : {
+    "time" : { "order" : "desc" }
+  }
+}
+
+Bài 3:
+PUT huylq78_suggest
+{ 
+  "settings": {
+    "number_of_shards": 1,
+    "index" : {
+        "similarity" : {
+          "default" : {
+            "type" : "BM25",
+            "b": 1,
+            "k1": 5
+          }
+        }
+    }
+  },
+  "mappings": { 
+    "properties" : { 
+      "suggest" : { 
+        "type" : "completion",
+        "preserve_position_increments": false,
+        "preserve_separators": false
+        }
+      }
+    }
+}
+
+GET huylq78_suggest\_search
+{
+  "suggest": {
+        "title-suggest" : {
+            "prefix" : "Hà",
+            "completion" : {
+                "field" : "suggest",
+                "skip_duplicates" : true
+            }
+        }
+    }
+}
