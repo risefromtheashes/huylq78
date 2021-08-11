@@ -60,11 +60,13 @@ public class test {
                 .withColumn("patch", functions.split(record.col("value"), "#").getItem(1))
                 .withColumn("time", functions.split(record.col("value"), "#").getItem(2))
                 .drop("value");
-        StreamingQuery query = result
+        result.createOrReplaceTempView("oplog");
+        Dataset<Row> result1 = spark.sql("select filter, max(time) from oplog group by filter");
+        StreamingQuery query = result1
 //                .selectExpr("name")
 //                .coalesce(1)
                 .writeStream()
-//                .outputMode("append")
+                .outputMode("complete")
 //                .format("parquet")
 //                .option("compression", "snappy")
 //                .option("path","hdfs://10.140.0.5:9000/user/huylq78/data_tracking")
